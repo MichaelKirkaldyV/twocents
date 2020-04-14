@@ -4,7 +4,13 @@ module.exports = function(app) {
     
     console.log("In the server routes")
 
-    app.get('/api/poll', apiController.getOnePoll),
+    app.get('/api/addUser', apiController.addUser),
+
+    app.get('/api/getUser/:id', apiController.getOneUser),
+
+    app.get('/api/removeUser/:id', apiController.removeUser),
+
+    app.get('/api/poll/:id', apiController.getOnePoll),
 
     app.get('/api/allPolls', apiController.showAllPolls),
 	

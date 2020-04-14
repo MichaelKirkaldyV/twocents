@@ -5,6 +5,17 @@ var Poll = mongoose.model('poll')
 
 module.exports = {
 
+    addUser: function(req, res) {
+        console.log("Adding new user")
+        //var user = new User({name: req.body.name, username: req.body.username})
+    },
+    getOneUser: function(req, res) {
+        console.log("Getting User")
+    },
+    removeUser: function(req, res) {
+        console.log("User removed")
+    },
+
     getOnePoll: function(req, res) {
         console.log("Finding poll..")
     	Poll.findOne({_id: req.params.id}, function(err, data){
@@ -29,7 +40,7 @@ module.exports = {
     },
     addPoll: function(req, res) {
      console.log("Adding poll..", req.body);
-	 var poll = new Poll({question: req.body.question, answer_one: req.body.answer_one, answer_two: req.body.answer_two, answer_three: req.body.answer_three});
+	 var poll = new Poll({question: req.body.question, answers: req.body.answers});
 	 poll.save(function(err, data){
             if (err) {
                 res.json(err);
