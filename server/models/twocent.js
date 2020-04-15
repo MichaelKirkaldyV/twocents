@@ -4,8 +4,7 @@ var mongoose = require('mongoose');
 var UserSchema = new mongoose.Schema({
     name: {type: String, required: [true, "Name is needed"]},
     username: {type: String, required: [true, "Username is needed"]},
-    salt: {type: String, required: false},
-	hash: {type: String, required: false},
+    password: {type: String, required: [true, "Password is needed"], minlength: 6},
 	_votes: {type: mongoose.Schema.Types.Mixed, ref: 'polls'},
 }, {timestamps: true});
 

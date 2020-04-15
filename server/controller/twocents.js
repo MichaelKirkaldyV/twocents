@@ -16,7 +16,7 @@ module.exports = {
             console.log(err);
         } 
         else {
-            var user = new User({username: req.body.username, password: hash });
+            var user = new User({name: req.body.name, username: req.body.username, password: hash });
             user.save(function(err, data){
                 if(err){
                    console.log("We have an error!", err);

@@ -1,17 +1,17 @@
 <div class="container">
-    <form (ngSubmit)="registerUser()" method="POST">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" name="name" [(ngModel)]="user.name"  id="name" placeholder="name">    
-        </div>    
-        <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" [(ngModel)]="user.username" id="username" placeholder="username">
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="text" name="password" [(ngModel)]="user.password" id="password" placeholder="password">
-        </div>
-        <input type="submit" name="submit" id="submit" placeholder="submit">
-    </form> 
+    <h1 class="title">Make the most out of your opinions</h1>
+    <div class="form">
+        <form (ngSubmit)="registerUser()" method="POST">
+            <div class="input">
+                <input type="text" name="name" [(ngModel)]="user.name"  id="name" placeholder="name">    
+            </div>    
+            <div class="input">
+                <input type="text" name="username" [(ngModel)]="user.username" id="username" placeholder="username">
+            </div>
+            <div class="input">
+                <input type="text" name="password" [(ngModel)]="user.password" id="password" placeholder="password">
+            </div>
+            <input type="submit" name="submit" id="submit" placeholder="submit">
+        </form> 
+    </div>
 </div>
