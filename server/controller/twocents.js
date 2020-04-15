@@ -1,13 +1,37 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('user')
 var Poll = mongoose.model('poll')
+var bcrypt = require('bcrypt');
 
 
 module.exports = {
 
-    addUser: function(req, res) {
-        console.log("Adding new user")
-        //var user = new User({name: req.body.name, username: req.body.username})
+    registerUser: function(req, res) {
+        console.log("Registering new user...")
+        var form_password = req.body.password;
+
+        //Hashes password
+        bcrypt.hash(form_password, 10, function(err, hash) {
+        if(err) {
+            console.log(err);
+        } 
+        else {
+            var user = new User({username: req.body.username, password: hash });
+            user.save(function(err, data){
+                if(err){
+                   console.log("We have an error!", err);
+               }
+               else {
+                   console.log(data);
+                   console.log('successfully added a user!');
+                   res.json(data)
+               }
+           }); //end of save
+         }
+        }); //End of bycrpt
+    },
+    loginUser: function(req, res) {
+
     },
     getOneUser: function(req, res) {
         console.log("Getting User")

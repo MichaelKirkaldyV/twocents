@@ -1,8 +1,11 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 var app = express();
+
+app.use(cors())
 
 //Use & Set
 //Alter server.js so that it finds static files within the dist folder of your Angular project
@@ -20,15 +23,12 @@ require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 
-
 //******************************* */
 //This "catch-all" route must be the very last route to be triggered and belongs at the end of the server.js
 // this route will be triggered if any of the routes above did not matchcopy
 app.all("*", (req,res,next) => {
   res.sendFile(path.resolve("./public/src/index.html"))
 });
-
-
 
 //listen
 var server = app.listen(3000, function() {

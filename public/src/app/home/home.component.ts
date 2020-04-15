@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { SingleDataSet, Label } from 'ng2-charts';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @Component({
   selector: 'app-home',

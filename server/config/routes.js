@@ -2,9 +2,10 @@ var apiController = require('./../controller/twocents.js')
 
 module.exports = function(app) {
     
-    console.log("In the server routes")
 
-    app.get('/api/addUser', apiController.addUser),
+    app.post('/api/register', apiController.registerUser),
+    
+    app.post('/api/login', apiController.loginUser),
 
     app.get('/api/getUser/:id', apiController.getOneUser),
 
