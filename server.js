@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var bodyParser = require('body-parser');
 var cors = require('cors')
+var session = require('express-session');
 
 var app = express();
 
@@ -13,6 +14,13 @@ app.use(express.static( __dirname + '/public/dist/public' ));
 
 //let's tell body-parser to read JSON, so we'll configure body-parser this way:
 app.use(bodyParser.json());
+
+app.use(session({
+  secret: 'ghostxinxthexshell',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+}))
 
 require('./server/config/mongoose.js');
 

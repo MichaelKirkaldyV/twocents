@@ -1,0 +1,21 @@
+
+.container {
+    height: 66%;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.options {
+    height: 200px;
+    width: 340px;
+    background-color: gainsboro;
+    display: inline-block;
+    border-radius: 10px;
+    margin: 20px;
+    margin-top: 170px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 10px 10px 8px #888888;
+}

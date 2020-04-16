@@ -15,4 +15,9 @@ registerThisUser(user) {
   return this.http.post('/api/register', user)
 }
 
+loginThisUser(user) {
+  console.log("in http service, logging user...")
+  return this.http.post('/api/login', user)
+}
+
 }

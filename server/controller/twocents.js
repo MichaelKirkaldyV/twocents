@@ -7,9 +7,7 @@ var bcrypt = require('bcrypt');
 module.exports = {
 
     registerUser: function(req, res) {
-        console.log("Registering new user...")
         var form_password = req.body.password;
-
         //Hashes password
         bcrypt.hash(form_password, 10, function(err, hash) {
         if(err) {
@@ -31,7 +29,32 @@ module.exports = {
         }); //End of bycrpt
     },
     loginUser: function(req, res) {
-
+        console.log("Authenticating User...")
+        var _username = req.body.username
+        User.findOne({ username: _username }, function(err, user) {
+            if (err) {
+                console.log("Cannot login...", err)
+            } else {
+                if (user) {
+                    var form_password = req.body.password;
+                    var hashed_password = user.password;
+                    bcrypt.compare(form_password, hashed_password, function(err, correctPassword) {
+                        if (correctPassword) {
+                            console.log("Welcome,", user.username, "You're logged in..")
+                            req.session.userid = user._id;
+                            console.log("SESSION-----------", req.session.userid)
+                            //check if the user is logged in
+                            req.session.isloggedin = true;
+                            res.json(req.session.userid)
+                        } else {
+                            if (err) {
+                                console.log("Incorrect password...please try again")
+                            }
+                        }
+                    })
+                }
+            }
+        })
     },
     getOneUser: function(req, res) {
         console.log("Getting User")

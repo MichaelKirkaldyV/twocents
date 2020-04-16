@@ -19,9 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    console.log("User passed-", this.user)
     this._http.registerThisUser(this.user).subscribe(data => {
-      console.log("User has been registered!", data)
       this._router.navigate(["home"])
     })
   }
