@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   user: any;
   session_id: string;
-  item: string = "item_1"
+  token: string = "Acess_token"
   session: any
 
   constructor(private _http: HttpService,
@@ -19,13 +19,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = {name: "", username: "", password: ""}
-
   }
 
   loginUser() {
     this._http.loginThisUser(this.user).subscribe(data => {
-      localStorage.setItem(this.item, JSON.stringify(data))
-      this.session = localStorage.getItem(this.item)
+      localStorage.setItem(this.token, JSON.stringify(data))
+      this.session = localStorage.getItem(this.token)
       this._router.navigate(['dashboard/', this.session])
     })
   }

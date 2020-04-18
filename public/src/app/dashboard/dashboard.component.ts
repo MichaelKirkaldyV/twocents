@@ -1,29 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { trigger, state, transition, animate, style } from '@angular/animations';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  animations: [
-    trigger('fade', [
-      // Defines style for the void state.
-      state('void', style({ display: 'none', opacity: 0 })),
-      state("*", style({ display: 'block', opacity: 1})),
-      // String is bi-directional for the transitional state --from void to default and default to void
-      transition('* => void', [
-        animate(500)
-      ])
-    ]) //End of trigger
-  ] // End of animations
 })
 export class DashboardComponent implements OnInit {
 
   token: any;
 
   constructor(private _route: ActivatedRoute,
-              private _router: Router) { }
+              private _router: Router,
+              private _stateService: StateService) { }
 
   ngOnInit(): void {
     this.getParams()
@@ -34,6 +24,7 @@ export class DashboardComponent implements OnInit {
     this._route.params.subscribe(params => {
       console.log("Here is the parameter...", params)
       this.token = params['id']
+      this.sendToRootComponent(this.token)
     })
   }
 
@@ -43,6 +34,11 @@ export class DashboardComponent implements OnInit {
     } else {
       this._router.navigate(['dashboard/', this.token])
     }
+  }
+
+  sendToRootComponent(token) {
+    this._stateService.MyMethod(token)
+    console.log("The token value is---", token)
   }
 
 }
