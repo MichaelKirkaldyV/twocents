@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
   }
 
   sendToRootComponent(token) {
-    this._stateService.MyMethod(token)
+    this._stateService.sendToken(token)
     console.log("The token value is---", token)
   }
 
