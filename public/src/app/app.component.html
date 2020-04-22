@@ -14,15 +14,15 @@
         <div class="h-img"></div>
         <a routerLink="login"><p class="h-opt">Login</p></a>
         <a routerLink="register"><p class="h-opt">Sign-up</p></a>
-        <a routerLink="logout"><p class="h-opt">Logout</p></a>
+        <button class="logout-btn" *ngIf="logged_in" (click)="logout()"><p class="h-opt">Logout</p></button>
       </div>
       <router-outlet></router-outlet>
       <div class="footer">
         <div class="f-one">
           <h3>Navigation</h3>
-          <a class="f-links" >home</a>
-          <a class="f-links">Polls</a>
-          <a class="f-links" >Login</a>
+          <a class="f-links" routerLink="home" >home</a>
+          <a class="f-links" routerLink="polls">Polls</a>
+          <a class="f-links" routerLink="login">Login</a>
         </div>
         <div class="f-one">
           <h3>About</h3>

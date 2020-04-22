@@ -64,6 +64,8 @@ html, body {
 .f-links {
     display: block;
     margin-top: 5px;
+    text-decoration: none;
+    color: white;
 } 
 
 .h-img {
@@ -75,5 +77,13 @@ html, body {
     right: 1470px;
     top: 17px;
     display: inline-block;
+}
+
+.logout-btn {
+    text-decoration: none;
+    border: none;
+    background-color: #E74C3C;
+    font-size: 15px;
+    cursor: pointer;
 }
 

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { SingleDataSet, Label } from 'ng2-charts';
 import { StateService } from './state.service';
-import { HttpService } from './http.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,10 +14,10 @@ import { HttpService } from './http.service';
 export class AppComponent implements OnInit {
 
   token: any;
-  current_state: string = "void"
+  logged_in: boolean;
 
   constructor(private _stateService: StateService,
-              private _http: HttpService) { }
+              private _router: Router) { }
 
   ngOnInit() {
     this.getToken()
@@ -30,13 +31,15 @@ export class AppComponent implements OnInit {
   getToken() {
     this._stateService.getToken().subscribe(token => {
       this.token = token
+      this.logged_in = true
       console.log("In the root----", this.token)
     })
   }
 
   logout() {
     localStorage.clear()
-    this.current_state == "void"
+    this.logged_in = false
+    this._router.navigate(['home'])
   }
   
 

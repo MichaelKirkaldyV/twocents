@@ -20,5 +20,9 @@ loginThisUser(user) {
   return this.http.post('/api/login', user)
 }
 
+createNewPoll(poll) {
+  return this.http.post('/api/createPoll', poll)
+}
+
 
 }

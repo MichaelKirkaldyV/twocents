@@ -12,6 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { CreatepollComponent } from './createpoll/createpoll.component';
+import { TakepollComponent } from './takepoll/takepoll.component';
+import { AllpollsComponent } from './allpolls/allpolls.component';
+import { MypollsComponent } from './mypolls/mypolls.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     DashboardComponent,
     LoginComponent,
+    CreatepollComponent,
+    TakepollComponent,
+    AllpollsComponent,
+    MypollsComponent,
   ],
   imports: [
     BrowserModule,
