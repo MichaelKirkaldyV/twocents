@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
 
   token: any;
-  logged_in: boolean;
+  logged_in: boolean = false;
+  logged_out: boolean;
 
   constructor(private _stateService: StateService,
               private _router: Router) { }
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit {
   logout() {
     localStorage.clear()
     this.logged_in = false
+    this.logged_out = true
     this._router.navigate(['home'])
   }
   

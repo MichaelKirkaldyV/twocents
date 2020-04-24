@@ -3,9 +3,9 @@
     <div class="poll-form">
         <form (ngSubmit)="createPoll()" method="POST">
             <input type="text" name="question" id="question" [(ngModel)]="poll.question" placeholder="Question">
-            <input type="text" name="answers" id="answers" [(ngModel)]="poll.answers_one" placeholder="Answer one">
-            <input type="text" name="answers" id="answers" [(ngModel)]="poll.answers_two" placeholder="Answer two">
-            <input type="text" name="answers" id="answers" [(ngModel)]="poll.answers_three" placeholder="Answer three">
+            <input type="text" name="answers" id="answers" [(ngModel)]="poll.answer_one" placeholder="Answer one">
+            <input type="text" name="answers" id="answers" [(ngModel)]="poll.answer_two" placeholder="Answer two">
+            <input type="text" name="answers" id="answers" [(ngModel)]="poll.answer_three" placeholder="Answer three">
             <input type="submit" name="submit" id="submit">
         </form>
     </div>

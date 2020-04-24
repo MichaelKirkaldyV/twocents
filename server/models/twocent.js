@@ -11,10 +11,9 @@ var UserSchema = new mongoose.Schema({
 var PollSchema = new mongoose.Schema({
     question: {type: String, required: [true, "Please provide a question"]},
     // Will insertMany() 3 answer objects into array to be retrieved later
-    answers: {type: Array, required: [true, "Please provide the answers"]},
-    //answer_one: {type: String, required: [true, "Please provide the first answer"]},
-    //answer_two: {type: String, required: [true, "Please provide the second answer"]},
-    //answer_three: {type: String, required: [true, "Please provide the final answer"]},
+    answer_one: {type: String, required: [true, "Please provide the first answer"],  minlength: 3},
+    answer_two: {type: String, required: [true, "Please provide the second answer"],  minlength: 3},
+    answer_three: {type: String, required: [true, "Please provide the third answer"],  minlength: 3},
 	_users: {type: mongoose.Schema.Types.Mixed, ref: 'user'},
 }, {timestamps: true});
 

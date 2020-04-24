@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-allpolls',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllpollsComponent implements OnInit {
 
-  constructor() { }
+  polls: any;
+
+  constructor(private _http: HttpService,
+              private _Router: Router) { }
 
   ngOnInit(): void {
+    this.getAllPolls()
+  }
+
+  getAllPolls() {
+    this._http.getPolls().subscribe(data => {
+      console.log("ALL POLLS--", data)
+      this.polls = data
+    })
   }
 
 }

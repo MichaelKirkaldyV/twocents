@@ -24,5 +24,9 @@ createNewPoll(poll) {
   return this.http.post('/api/createPoll', poll)
 }
 
+getPolls() {
+  return this.http.get('/api/allPolls')
+}
+
 
 }

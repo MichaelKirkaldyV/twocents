@@ -15,7 +15,7 @@ module.exports = function(app) {
 
     app.get('/api/allPolls', apiController.showAllPolls),
 	
-	app.post('/api/addPoll', apiController.addPoll),
+	app.post('/api/createPoll', apiController.createPoll),
 
     app.delete('/api/removePoll/:id', apiController.removePoll)
     

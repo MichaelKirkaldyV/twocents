@@ -12,20 +12,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreatepollComponent implements OnInit {
 
   poll: any;
-  poll_id: any;
+  user_id: any;
 
   constructor(private _http: HttpService,
               private _router: Router,
               private _route: ActivatedRoute,) { }
 
   ngOnInit(): void {
-    this.poll = {question: "", answers_one: "", answers_two: "", answers_three: ""}
+    this.poll = {question: "", answer_one: "", answer_two: "", answer_three: ""}
     this.getParams()
   }
 
   getParams() {
     this._route.params.subscribe(params => {
-      this.poll_id = params['id']
+      this.user_id = params['id']
     })
   }
 
@@ -33,7 +33,7 @@ export class CreatepollComponent implements OnInit {
     console.log("Check out this poll", this.poll)
     this._http.createNewPoll(this.poll).subscribe(data => {
       console.log("Frontend- Poll created.", data)
-      this._router.navigate(['dashboard', this.poll_id,])
+      this._router.navigate(['dashboard', this.user_id])
     })
   }
 

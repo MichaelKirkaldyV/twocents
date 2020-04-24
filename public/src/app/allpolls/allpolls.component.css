@@ -1,0 +1,21 @@
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+}
+
+.poll {
+    background-color: #e4e4e4;
+    height: 80px;
+    width: 340px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-right: 15px;
+}
+
+

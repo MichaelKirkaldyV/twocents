@@ -77,7 +77,7 @@ module.exports = {
     },
     showAllPolls: function(req, res) {
         console.log("Gathering all polls..")
-        Poll.find({_id: req.params.id}, function(err, data){
+        Poll.find({}, function(err, data){
             if (err) {
                 res.json(err)
             } else {
@@ -85,9 +85,9 @@ module.exports = {
             }
         });
     },
-    addPoll: function(req, res) {
+    createPoll: function(req, res) {
      console.log("Adding poll..", req.body);
-	 var poll = new Poll({question: req.body.question, answers: req.body.answers});
+	 var poll = new Poll({question: req.body.question, answer_one: req.body.answer_one, answer_two: req.body.answer_two, answer_three: req.body.answer_three});
 	 poll.save(function(err, data){
             if (err) {
                 res.json(err);
