@@ -87,7 +87,8 @@ module.exports = {
     },
     createPoll: function(req, res) {
      console.log("Adding poll..", req.body);
-	 var poll = new Poll({question: req.body.question, answer_one: req.body.answer_one, answer_two: req.body.answer_two, answer_three: req.body.answer_three});
+     var poll = new Poll({question: req.body.question}, {$push: {answers: {answer: req.body.answer_one, vote: 0}}}, {$push: {answers: {answer: req.body.answer_two, vote: 0}}}, 
+                         {$push: {answers: {answer: req.body.answers_three, vote: 0}}});
 	 poll.save(function(err, data){
             if (err) {
                 res.json(err);
