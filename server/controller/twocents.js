@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('user')
 var Poll = mongoose.model('poll')
+var Answer = mongoose.model('answer')
 var bcrypt = require('bcrypt');
 
 
@@ -87,10 +88,16 @@ module.exports = {
     },
     createPoll: function(req, res) {
      console.log("Adding poll..", req.body);
-     var poll = new Poll({question: req.body.question}, {$push: {answers: {answer: req.body.answer_one, vote: 0}}}, {$push: {answers: {answer: req.body.answer_two, vote: 0}}}, 
-                         {$push: {answers: {answer: req.body.answers_three, vote: 0}}});
+     var first_answer = new Answer({answer: req.body.answer_one}, {vote: 0})
+     var second_answer = new Answer({answer: req.body.answer_two}, {vote: 0})
+     var third_answer = new Answer({answer: req.body.answer_three}, {vote: 0})
+     first_answer, second_answer, third_answer.save()
+     var poll = new Poll({question: req.body.question});
+     poll.answers.push(first_answer, second_answer, third_answer)
 	 poll.save(function(err, data){
+            console.log("POLL", data)
             if (err) {
+                console.log(err)
                 res.json(err);
             } else {
                 res.json(data);

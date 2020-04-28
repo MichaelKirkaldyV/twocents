@@ -8,9 +8,14 @@ var UserSchema = new mongoose.Schema({
 	_polls: {type: mongoose.Schema.Types.Mixed, ref: 'polls'},
 }, {timestamps: true});
 
+var AnswerSchema = new mongoose.Schema({
+    answer: {type: String, required: [true, "Please provide an answer"]},
+    vote: {type: Number}
+}, {timestamps: true})
+
 var PollSchema = new mongoose.Schema({
     question: {type: String, required: [true, "Please provide a question"]},
-    answers: [{answer: String, vote: Number}],
+    answers: [AnswerSchema],
 	_users: {type: mongoose.Schema.Types.Mixed, ref: 'users'},
 }, {timestamps: true});
 
@@ -18,3 +23,4 @@ var PollSchema = new mongoose.Schema({
 // We are setting these Schema in our Models.
 mongoose.model('user', UserSchema); 
 mongoose.model('poll', PollSchema);
+mongoose.model('answer', AnswerSchema);
