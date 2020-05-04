@@ -67,7 +67,7 @@ module.exports = {
     getOnePoll: function(req, res) {
         console.log("Finding poll..")
     	Poll.findOne({_id: req.params.id}, function(err, data){
-        if(err){
+        if (err){
            console.log("Returned error", err);
            res.json(err)
         }
@@ -85,9 +85,8 @@ module.exports = {
                 res.json(data)
             }
         });
-    },
+    }, 
     createPoll: function(req, res) {
-     console.log("Adding poll..", req.body);
      var first_answer = new Answer({answer: req.body.answer_one}, {vote: 0})
      var second_answer = new Answer({answer: req.body.answer_two}, {vote: 0})
      var third_answer = new Answer({answer: req.body.answer_three}, {vote: 0})
@@ -101,10 +100,29 @@ module.exports = {
                 res.json(err);
             } else {
                 res.json(data);
+                var user_id = JSON.parse(req.params.id)
+                User.findOneAndUpdate({_id: user_id}, {$set: {_polls: poll}}, {useFindAndModify: false}, function(err, data){
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        console.log("Here is the user", data)
+                    }
+                })
             }
         });
     },
-   removePoll: function(req, res) {
+    getThisUsersPolls: function(req, res) {
+        var user_id = JSON.parse(req.params.id)
+        console.log(user_id)
+        User.findById({_id: user_id}, function(err, data){
+            if (err) {
+                console.log(err)
+            } else {
+                res.json(data)
+            }
+        })
+    },
+    removePoll: function(req, res) {
        console.log("Poll deleted..")
         Poll.remove({_id: req.params.id }, function(err, data) {
             if (err) {

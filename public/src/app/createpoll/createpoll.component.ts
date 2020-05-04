@@ -31,7 +31,7 @@ export class CreatepollComponent implements OnInit {
 
   createPoll() {
     console.log("Check out this poll", this.poll)
-    this._http.createNewPoll(this.poll).subscribe(data => {
+    this._http.createNewPoll(this.user_id, this.poll).subscribe(data => {
       console.log("Frontend- Poll created.", data)
       this._router.navigate(['dashboard', this.user_id])
     })

@@ -5,7 +5,7 @@ var UserSchema = new mongoose.Schema({
     name: {type: String, required: [true, "Name is needed"]},
     username: {type: String, required: [true, "Username is needed"]},
     password: {type: String, required: [true, "Password is needed"], minlength: 6},
-	_polls: {type: mongoose.Schema.Types.Mixed, ref: 'polls'},
+	_polls: [{type: mongoose.Schema.Types.Mixed, ref: 'polls'}],
 }, {timestamps: true});
 
 var AnswerSchema = new mongoose.Schema({

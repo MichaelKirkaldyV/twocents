@@ -20,13 +20,16 @@ loginThisUser(user) {
   return this.http.post('/api/login', user)
 }
 
-createNewPoll(poll) {
-  return this.http.post('/api/createPoll', poll)
+createNewPoll(id, poll) {
+  return this.http.post('/api/createPoll/' +id, poll)
 }
 
 getPolls() {
   return this.http.get('/api/allPolls')
 }
 
+getMyPolls_(id) {
+  return this.http.get('/api/getMyPolls/' +id)
+}
 
 }
