@@ -101,7 +101,7 @@ module.exports = {
             } else {
                 res.json(data);
                 var user_id = JSON.parse(req.params.id)
-                User.findOneAndUpdate({_id: user_id}, {$set: {_polls: poll}}, {useFindAndModify: false}, function(err, data){
+                User.findOneAndUpdate({_id: user_id}, {$push: {_polls: poll}}, {useFindAndModify: false}, function(err, data){
                     if (err) {
                         console.log(err)
                     } else {

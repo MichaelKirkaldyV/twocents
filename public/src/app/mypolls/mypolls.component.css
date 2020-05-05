@@ -1,0 +1,27 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    padding: 25px;
+}
+
+.poll {
+    background-color: #e4e4e4;
+    height: 80px;
+    width: 340px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-shadow: 10px 10px 8px #888888;
+}
+
+.box {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15px;
+    
+}
