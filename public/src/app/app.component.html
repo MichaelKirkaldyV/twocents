@@ -13,8 +13,8 @@
         <a routerLink="home"><h3 class="title">Two Cents</h3></a>
         <div class="h-img"></div>
         <button routerLink="dashboard/{{token}}" class="dashboard-btn" *ngIf="logged_in"><p class="h-opt">Dashboard</p></button>
-        <a routerLink="login"><p class="h-opt">Login</p></a>
-        <a routerLink="register"><p class="h-opt">Sign-up</p></a>
+        <a routerLink="login" *ngIf="logged_out"><p class="h-opt">Login</p></a>
+        <a routerLink="register" *ngIf="logged_out"><p class="h-opt">Sign-up</p></a>
         <button class="logout-btn" *ngIf="logged_in" (click)="logout()"><p class="h-opt">Logout</p></button>
       </div>
       <router-outlet></router-outlet>

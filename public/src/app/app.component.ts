@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
 
   token: any;
-  logged_in: boolean = false;
-  logged_out: boolean;
+  logged_in: boolean;
+  logged_out: boolean = true;
 
   constructor(private _stateService: StateService,
               private _router: Router) { }
@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
     this._stateService.getToken().subscribe(token => {
       this.token = token
       this.logged_in = true
+      this.logged_out = false
       console.log("In the root----", this.token)
     })
   }
