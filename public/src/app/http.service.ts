@@ -32,4 +32,8 @@ getMyPolls_(id) {
   return this.http.get('/api/getMyPolls/' +id)
 }
 
+getPollData_(id) {
+  return this.http.get('/api/poll/' +id)
+}
+
 }

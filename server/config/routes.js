@@ -6,8 +6,6 @@ module.exports = function(app) {
     
     app.post('/api/login', apiController.loginUser),
 
-    app.get('/api/getUser/:id', apiController.getOneUser),
-
     app.get('/api/removeUser/:id', apiController.removeUser),
 
     app.get('/api/poll/:id', apiController.getOnePoll),
@@ -16,7 +14,6 @@ module.exports = function(app) {
 	
 	app.post('/api/createPoll/:id', apiController.createPoll),
 
-    app.delete('/api/removePoll/:id', apiController.removePoll),
-
     app.get('/api/getMyPolls/:id', apiController.getThisUsersPolls)
-};
+
+}; 

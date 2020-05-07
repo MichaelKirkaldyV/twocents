@@ -16,6 +16,7 @@ import { CreatepollComponent } from './createpoll/createpoll.component';
 import { TakepollComponent } from './takepoll/takepoll.component';
 import { AllpollsComponent } from './allpolls/allpolls.component';
 import { MypollsComponent } from './mypolls/mypolls.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MypollsComponent } from './mypolls/mypolls.component';
     TakepollComponent,
     AllpollsComponent,
     MypollsComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,

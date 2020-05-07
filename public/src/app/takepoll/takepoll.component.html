@@ -1,1 +1,26 @@
-<p>takepoll works!</p>
+<div class="container">
+    <div class="poll">
+        <h2>{{poll.question}}</h2>
+        <form action="" method="POST">
+            <div class="opt">
+                <input type="checkbox" name="answer_one">
+                <label>{{poll.answers[0].answer}}</label>
+            </div>
+            <div class="opt">
+                <input type="checkbox" name="answer_two">
+                <label>{{poll.answers[1].answer}}</label>
+            </div>
+            <div class="opt">
+                <input type="checkbox" name="answer_three">
+                <label>{{poll.answers[2].answer}}</label>
+            </div>
+            <input type="submit" value="submit" class="submit">
+        </form>
+    </div>
+    <div class="chart">
+        <!--CHART GOES here/ Inline block-->
+    </div>
+    <div class="results">
+        <!--amount of votes for each answer-->
+    </div>
+</div>

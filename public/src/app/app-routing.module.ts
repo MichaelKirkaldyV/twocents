@@ -8,6 +8,7 @@ import { CreatepollComponent } from './createpoll/createpoll.component';
 import { TakepollComponent } from './takepoll/takepoll.component';
 import { AllpollsComponent } from './allpolls/allpolls.component';
 import { MypollsComponent } from './mypolls/mypolls.component';
+import { ResultsComponent } from './results/results.component';
 
 
 const routes: Routes = [
@@ -18,9 +19,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard/:id', component: DashboardComponent },
   { path: 'dashboard/:id/createPoll', component: CreatepollComponent },
-  { path: 'dashboard/:id/takePoll', component: TakepollComponent },
+  { path: 'dashboard/:id/allPolls/takePoll/:pollId', component: TakepollComponent },
   { path: 'dashboard/:id/allPolls', component: AllpollsComponent },
-  { path: 'dashboard/:id/myPolls', component: MypollsComponent }
+  { path: 'dashboard/:id/myPolls', component: MypollsComponent },
+  { path: 'dashboard/:id/results', component: ResultsComponent },
 
 ];
 
