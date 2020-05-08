@@ -122,6 +122,16 @@ module.exports = {
             }
         })
     },
+    addVoteToPoll: function(req, res) {
+        console.log("REQUEST__", req)
+        Answer.findOne({answer = ?}, function(err, data) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(data)
+            }
+        })
+    },
     removePoll: function(req, res) {
        console.log("Poll deleted..")
         Poll.remove({_id: req.params.id }, function(err, data) {

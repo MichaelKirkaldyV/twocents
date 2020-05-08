@@ -14,6 +14,8 @@ module.exports = function(app) {
 	
 	app.post('/api/createPoll/:id', apiController.createPoll),
 
-    app.get('/api/getMyPolls/:id', apiController.getThisUsersPolls)
+    app.get('/api/getMyPolls/:id', apiController.getThisUsersPolls),
+
+    app.put('/api/vote/:id', apiController.addVoteToPoll)
 
 }; 

@@ -36,4 +36,8 @@ getPollData_(id) {
   return this.http.get('/api/poll/' +id)
 }
 
+voteOnPoll_(poll_id, answer) {
+  return this.http.put('/api/vote/' +poll_id, answer)
+}
+
 }

@@ -1,17 +1,17 @@
 <div class="container">
     <div class="poll">
         <h2>{{poll.question}}</h2>
-        <form action="" method="POST">
+        <form (ngSubmit)="voteOnPoll()" method="POST">
             <div class="opt">
-                <input type="checkbox" name="answer_one">
+                <input type="checkbox" name="answer_one" value="{{poll.answers[0].answer}}" (change)="checkBox($event)">
                 <label>{{poll.answers[0].answer}}</label>
             </div>
             <div class="opt">
-                <input type="checkbox" name="answer_two">
+                <input type="checkbox" name="answer_two" value="{{poll.answers[1].answer}}" (change)="checkBox($event)">
                 <label>{{poll.answers[1].answer}}</label>
             </div>
             <div class="opt">
-                <input type="checkbox" name="answer_three">
+                <input type="checkbox" name="answer_three" value="{{poll.answers[2].answer}}" (change)="checkBox($event)">
                 <label>{{poll.answers[2].answer}}</label>
             </div>
             <input type="submit" value="submit" class="submit">
