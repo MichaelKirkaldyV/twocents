@@ -123,19 +123,24 @@ module.exports = {
         })
     },
     addVoteToPoll: function(req, res) {
-        console.log("REQUEST__", req)
-        Answer.findOne({answer = ?}, function(err, data) {
+        console.log("REQUEST__", req.body.answer)
+        var user_choice = req.body.answer
+        // Answers are type string. They must be converted to find the corresponding answer in the db
+        user_choice.toString()
+        console.log("USER__", user_choice)
+        Answer.findOne({_id: user_choice}, function(err, data) {
             if (err) {
                 console.log(err)
             } else {
-                console.log(data)
+                console.log("FOUND IT!!!!!", data)
             }
         })
     },
     removePoll: function(req, res) {
        console.log("Poll deleted..")
-        Poll.remove({_id: req.params.id }, function(err, data) {
+        Poll.deleteOne({_id: req.params.id }, function(err, data) {
             if (err) {
+                console.log("ERR", err)
                 res.json(err)
             } else {
                 res.json(data);

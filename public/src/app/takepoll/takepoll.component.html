@@ -3,15 +3,15 @@
         <h2>{{poll.question}}</h2>
         <form (ngSubmit)="voteOnPoll()" method="POST">
             <div class="opt">
-                <input type="checkbox" name="answer_one" value="{{poll.answers[0].answer}}" (change)="checkBox($event)">
+                <input type="checkbox" name="answer_three" value="{{poll.answers[0]._id}}" (change)="checkBox($event)">
                 <label>{{poll.answers[0].answer}}</label>
             </div>
             <div class="opt">
-                <input type="checkbox" name="answer_two" value="{{poll.answers[1].answer}}" (change)="checkBox($event)">
+                <input type="checkbox" name="answer_two" value="{{poll.answers[1]._id}}" (change)="checkBox($event)">
                 <label>{{poll.answers[1].answer}}</label>
             </div>
             <div class="opt">
-                <input type="checkbox" name="answer_three" value="{{poll.answers[2].answer}}" (change)="checkBox($event)">
+                <input type="checkbox" name="answer_three" value="{{poll.answers[2]._id}}" (change)="checkBox($event)">
                 <label>{{poll.answers[2].answer}}</label>
             </div>
             <input type="submit" value="submit" class="submit">
@@ -20,6 +20,7 @@
     <div class="chart">
         <!--CHART GOES here/ Inline block-->
     </div>
+    <button (click)="removePoll()"><div class="remove"><p>Delete</p></div></button>
     <div class="results">
         <!--amount of votes for each answer-->
     </div>

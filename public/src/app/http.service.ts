@@ -40,4 +40,8 @@ voteOnPoll_(poll_id, answer) {
   return this.http.put('/api/vote/' +poll_id, answer)
 }
 
+removePoll_(poll_id) {
+  return this.http.delete('/api/deletePoll/' + poll_id)
+}
+
 }

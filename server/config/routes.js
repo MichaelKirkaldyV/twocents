@@ -16,6 +16,8 @@ module.exports = function(app) {
 
     app.get('/api/getMyPolls/:id', apiController.getThisUsersPolls),
 
-    app.put('/api/vote/:id', apiController.addVoteToPoll)
+    app.put('/api/vote/:id', apiController.addVoteToPoll),
+    
+    app.delete('/api/deletePoll/:id', apiController.removePoll)
 
 }; 
