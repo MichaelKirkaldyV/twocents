@@ -1,5 +1,10 @@
 <div class="container">
     <h1 class="title">Make the most out of your opinions</h1>
+    <div class="errors">
+        <span *ngFor="let message of error_messages">
+            <p>{{message}}</p>
+        </span>
+    </div>
     <div class="form">
         <form (ngSubmit)="registerUser()" method="POST">
             <div class="input">

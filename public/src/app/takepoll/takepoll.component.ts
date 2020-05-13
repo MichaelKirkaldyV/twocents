@@ -63,7 +63,7 @@ export class TakepollComponent implements OnInit {
     console.log("In the remove poll")
     this._http.removePoll_(this.poll_id).subscribe(data => {
       console.log("Poll deleted!")
-      this._router.navigate(['dashboard/', this.user_id, '/allPolls'])
+      this._router.navigate(['dashboard/' + this.user_id + '/allPolls'])
     })
   }
 

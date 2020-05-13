@@ -40,3 +40,10 @@ input {
     margin-top: 93px;
     margin-bottom: 45px;
 }
+
+.errors {
+    height: 200px;
+    width: 400px;
+    background-color: green;
+    position: absolute;
+}

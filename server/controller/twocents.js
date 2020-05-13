@@ -19,6 +19,7 @@ module.exports = {
             user.save(function(err, data){
                 if(err){
                    console.log("We have an error!", err);
+                   res.json(err)
                }
                else {
                    console.log(data);
@@ -50,6 +51,7 @@ module.exports = {
                         } else {
                             if (err) {
                                 console.log("Incorrect password...please try again")
+                                res.json(err)
                             }
                         }
                     })
@@ -138,7 +140,7 @@ module.exports = {
     },
     removePoll: function(req, res) {
        console.log("Poll deleted..")
-        Poll.deleteOne({_id: req.params.id }, function(err, data) {
+        Poll.deleteOne ({_id: req.params.id }, function(err, data) {
             if (err) {
                 console.log("ERR", err)
                 res.json(err)
