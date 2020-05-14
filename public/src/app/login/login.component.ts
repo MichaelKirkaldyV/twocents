@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   session_id: string;
   token: string = "Acess_token"
   session: any;
-  error_messages: any;
+  error_messages: any = [];
 
   constructor(private _http: HttpService,
               private _router: Router) { }
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this._http.loginThisUser(this.user).subscribe(data => {
-      console.log("here is the error", data)
+      console.log("here is the error---", data['errors'])
       if (data['errors']) {
         this.error_messages.push(data)
         console.log(this.error_messages)

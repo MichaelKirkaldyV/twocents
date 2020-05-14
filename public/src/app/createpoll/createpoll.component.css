@@ -17,7 +17,7 @@
 
 input {
     display: block;
-    margin-bottom: 25px;
+    margin-bottom: 36px;
     width: 632px;
     height: 30px;
     margin-left: 25px;
@@ -42,5 +42,14 @@ input {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     margin-top: 55px;
+}
 
+.err-text {
+    color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 50px;
+    position: absolute;
+    left: 883px;
+    text-align: center;
+    top: 265px;
 }

@@ -33,6 +33,7 @@ export class CreatepollComponent implements OnInit {
   createPoll() {
     console.log("Check out this poll", this.poll)
     this._http.createNewPoll(this.user_id, this.poll).subscribe(data => {
+      console.log(data[0])
       if (data['errors']) {
           this.error_messages.push(data['errors'])
           console.log("Messages", this.error_messages)

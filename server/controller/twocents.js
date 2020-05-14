@@ -9,7 +9,7 @@ module.exports = {
 
     registerUser: function(req, res) {
         var form_password = req.body.password;
-        //Hashes password
+        // Hashes password
         bcrypt.hash(form_password, 10, function(err, hash) {
         if(err) {
             console.log(err);
@@ -26,9 +26,9 @@ module.exports = {
                    console.log('successfully added a user!');
                    res.json(data)
                }
-           }); //end of save
+           }); // End of save
          }
-        }); //End of bycrpt
+        }); // End of bycrpt
     },
     loginUser: function(req, res) {
         console.log("Authenticating User...")
@@ -46,7 +46,7 @@ module.exports = {
                             console.log("Welcome,", user.username, "You're logged in..")
                             req.session.userid = user._id;
                             console.log("SESSION-----------", req.session.userid)
-                            //check if the user is logged in
+                            // Check if the user is logged in
                             req.session.isloggedin = true;
                             res.json(req.session.userid)
                         } else {
@@ -58,7 +58,7 @@ module.exports = {
                     })
                 } else {
                     console.log("user does not exist")
-                    res.json({errors: "User does not exist"})
+                    res.json({errors: "User does not exist/Incorrect Password"})
                 }
             }
         })
@@ -86,13 +86,13 @@ module.exports = {
         });
     }, 
     createPoll: function(req, res) {
-     var first_answer = new Answer({answer: req.body.answer_one}, {vote: 0})
-     var second_answer = new Answer({answer: req.body.answer_two}, {vote: 0})
-     var third_answer = new Answer({answer: req.body.answer_three}, {vote: 0})
-     first_answer, second_answer, third_answer.save()
-     var poll = new Poll({question: req.body.question});
-     poll.answers.push(first_answer, second_answer, third_answer)
-	 poll.save(function(err, data){
+        var first_answer = new Answer({answer: req.body.answer_one}, {vote: 0})
+        var second_answer = new Answer({answer: req.body.answer_two}, {vote: 0})
+        var third_answer = new Answer({answer: req.body.answer_three}, {vote: 0})
+        first_answer, second_answer, third_answer.save()
+        var poll = new Poll({question: req.body.question});
+        poll.answers.push(first_answer, second_answer, third_answer)
+        poll.save(function(err, data){
             console.log("POLL", data)
             if (err) {
                 console.log(err)
@@ -136,7 +136,7 @@ module.exports = {
         })
     },
     removePoll: function(req, res) {
-       console.log("Poll deleted..")
+        console.log("Poll deleted..")
         Poll.deleteOne ({_id: req.params.id }, function(err, data) {
             if (err) {
                 console.log("ERR", err)

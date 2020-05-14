@@ -2,10 +2,10 @@
     <h1 class="title">Get opinionated, create a poll..</h1>
     <div class="poll-form">
         <span *ngIf="error_messages">
-            <p>{{error_messages[0].question.message}}</p>
+            <p class="err-text">{{error_messages[0].question.message}}</p>
         </span>
         <span *ngIf="error_messages">
-            <p>{{error_messages[0].answers.0.answer.message}}</p>
+            <p class="err-text">{{error_messages[0].answers}}</p>
         </span>
         <span *ngIf="error_messages">
             <p></p>
