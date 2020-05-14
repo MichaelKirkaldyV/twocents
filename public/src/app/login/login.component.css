@@ -40,3 +40,16 @@ input {
     margin-top: 93px;
     margin-bottom: 45px;
 }
+
+.err-text {
+    color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 50px;
+    position: absolute;
+    left: 883px;
+    text-align: center;
+}
+
+.err-text-2 {
+    top: 340px;
+}

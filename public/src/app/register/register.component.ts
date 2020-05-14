@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   user: any;
-  error_messages: any;
+  error_messages: any = [];
 
   constructor(private _http: HttpService,
               private _router: Router) { }
@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     this._http.registerThisUser(this.user).subscribe(data => {
+      console.log("data",data)
       if (data['errors']) {
         console.log(data['errors'])
         this.error_messages.push(data['errors'])

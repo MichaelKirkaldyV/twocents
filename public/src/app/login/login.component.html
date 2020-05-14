@@ -1,6 +1,15 @@
 <div class="container">
     <h1 class="title">Login here, let's have some fun!</h1>
     <div class="form">
+        <span *ngFor=" let message of error_messages">
+            <p class="err-text">{{message}}</p>
+        </span>
+        <span *ngIf="error_messages">
+            <p class="err-text">{{error_messages[0].name.message}}</p>
+        </span>
+        <span *ngIf="error_messages">
+            <p class="err-text err-text-2">{{error_messages[0].username.message}}</p>
+        </span>
         <form (ngSubmit)="loginUser()" method="POST">
             <div class="input">
                 <input type="text" name="name" [(ngModel)]="user.name"  id="name" placeholder="name">    

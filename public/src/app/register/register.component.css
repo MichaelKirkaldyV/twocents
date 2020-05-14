@@ -44,6 +44,23 @@ input {
 .errors {
     height: 200px;
     width: 400px;
-    background-color: green;
     position: absolute;
+    left: 760px;
+    bottom: 407px;
+    text-align: center;
+    background-color: yellow;
+}
+
+.err-text {
+    color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 50px;
+    position: absolute;
+    left: 883px;
+    text-align: center;
+    top: 340px;
+}
+
+.err-text-2 {
+    top: 414px;
 }

@@ -36,6 +36,7 @@ module.exports = {
         User.findOne({ username: _username }, function(err, user) {
             if (err) {
                 console.log("Cannot login...", err)
+                res.json(err)
             } else {
                 if (user) {
                     var form_password = req.body.password;
@@ -55,17 +56,13 @@ module.exports = {
                             }
                         }
                     })
+                } else {
+                    console.log("user does not exist")
+                    res.json({errors: "User does not exist"})
                 }
             }
         })
     },
-    getOneUser: function(req, res) {
-        console.log("Getting User")
-    },
-    removeUser: function(req, res) {
-        console.log("User removed")
-    },
-
     getOnePoll: function(req, res) {
         console.log("Finding poll..")
     	Poll.findOne({_id: req.params.id}, function(err, data){
