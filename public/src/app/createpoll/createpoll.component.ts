@@ -13,7 +13,7 @@ export class CreatepollComponent implements OnInit {
 
   poll: any;
   user_id: any;
-  error_messages: any = [];
+  error: any;
 
   constructor(private _http: HttpService,
               private _router: Router,
@@ -33,10 +33,8 @@ export class CreatepollComponent implements OnInit {
   createPoll() {
     console.log("Check out this poll", this.poll)
     this._http.createNewPoll(this.user_id, this.poll).subscribe(data => {
-      console.log(data[0])
-      if (data['errors']) {
-          this.error_messages.push(data['errors'])
-          console.log("Messages", this.error_messages)
+      if (data['err']) {
+        this.error = data['err']
       } else {
           console.log("Frontend- Poll created.", data)
           this._router.navigate(['dashboard', this.user_id])

@@ -96,7 +96,7 @@ module.exports = {
             console.log("POLL", data)
             if (err) {
                 console.log(err)
-                res.json(err);
+                res.json({err: "Please provide a question and/or three answers"});
             } else {
                 res.json(data);
                 var user_id = JSON.parse(req.params.id)
