@@ -29,9 +29,11 @@ h2 {
     border: none;
     color: white;
     background-color: green;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 45px;
     width: 205px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 label {
@@ -40,15 +42,44 @@ label {
 
 .chart {
     background-color: yellow;
-    height: 100px;
-    width: 100px;
+    height: 600px;
+    width: 800px;
     display: inline-block;
     vertical-align: top;
+    margin-top: 25px;
+    margin-left: 40px;
+    margin-right: 50px;
 }
 
 .results {
     background-color: black;
-    width: 100%;
+    width: 500px;
     height: 200px;
+    display: inline-block;
     vertical-align: bottom;
+    border-radius: 10px;
+}
+
+.delete {
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 120px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 25px;
+    margin-left: 380px;
+    margin-bottom: 100px;
+    display: block;
+    cursor: pointer;
+}
+
+.options {
+    display: inline-block;
+}
+
+.ans-results {
+    color: white;
+    margin-left: 25px;
 }

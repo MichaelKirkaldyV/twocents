@@ -20,8 +20,12 @@
     <div class="chart">
         <!--CHART GOES here/ Inline block-->
     </div>
-    <button (click)="removePoll()"><div class="remove"><p>Delete</p></div></button>
-    <div class="results">
-        <!--amount of votes for each answer-->
+    <div class="options">
+        <button (click)="removePoll()" class="delete"><div class="remove"><p>Delete</p></div></button>
+        <div class="results">
+            <p class="ans-results">{{poll.answers[0].answer}}</p>
+            <p class="ans-results">{{poll.answers[1].answer}}</p>
+            <p class="ans-results">{{poll.answers[2].answer}}</p>
+        </div>
     </div>
 </div>
