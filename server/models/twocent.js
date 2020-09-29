@@ -10,7 +10,7 @@ var UserSchema = new mongoose.Schema({
 
 var AnswerSchema = new mongoose.Schema({
     answer: {type: String, required: [true, "Please provide an answer"]},
-    vote: {type: Number}
+    vote: {type: Number},
 }, {timestamps: true})
 
 var PollSchema = new mongoose.Schema({
