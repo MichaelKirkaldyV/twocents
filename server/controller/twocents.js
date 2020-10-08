@@ -87,9 +87,10 @@ module.exports = {
         });
     }, 
     createPoll: function(req, res) {
-        var first_answer = new Answer({answer: req.body.answer_one, vote: 0})
-        var second_answer = new Answer({answer: req.body.answer_two, vote: 0})
-        var third_answer = new Answer({answer: req.body.answer_three, vote: 0})
+        // Vote will get added and incremented with findOneandUpdate() & $inc 
+        var first_answer = new Answer({answer: req.body.answer_one})
+        var second_answer = new Answer({answer: req.body.answer_two})
+        var third_answer = new Answer({answer: req.body.answer_three})
         first_answer, second_answer, third_answer.save()
         console.log("ANSWERS", first_answer, second_answer, third_answer)
         var poll = new Poll({question: req.body.question});
@@ -129,8 +130,9 @@ module.exports = {
         console.log("answer",req.body.answer)
         // Answers are type string. They must be converted to find the corresponding answer in the db
         user_choice.toString()
+        var objectId = mongoose.Types.ObjectId
         console.log("USER__", user_choice)
-        Answer.findOneAndUpdate({_id: user_choice}, {$inc: {vote: 1}}, {new: true}, function(err, data) {
+        Answer.findOneAndUpdate({_id: new objectId(user_choice)}, {$inc: {vote: 1}}, {new: true, upsert: true, useFindAndModify: false}, function(err, data) {
             if (err) {
                 console.log(err)
             } else {
@@ -138,13 +140,6 @@ module.exports = {
                 res.json(data)
             }
         })
-        /*Poll.findById({answers: {_id: user_choice}}, function(err, data) {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log("HERE!---", data)
-            }
-        })*/
     },
     removePoll: function(req, res) {
         console.log("Poll deleted..")
