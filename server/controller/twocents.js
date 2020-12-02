@@ -65,7 +65,7 @@ module.exports = {
     },
     getOnePoll: function(req, res) {
         console.log("Finding poll..")
-    	Poll.findOne({_id: req.params.id}, function(err, data){
+    	Poll.findById({_id: req.params.id}, function(err, data){
         if (err){
            console.log("Returned error", err);
            res.json(err)
@@ -88,9 +88,9 @@ module.exports = {
     }, 
     createPoll: function(req, res) {
         // Vote will get added and incremented with findOneandUpdate() & $inc 
-        var first_answer = new Answer({answer: req.body.answer_one})
-        var second_answer = new Answer({answer: req.body.answer_two})
-        var third_answer = new Answer({answer: req.body.answer_three})
+        var first_answer = new Answer({answer: req.body.answer_one, vote: 0})
+        var second_answer = new Answer({answer: req.body.answer_two, vote: 0})
+        var third_answer = new Answer({answer: req.body.answer_three, vote: 0})
         first_answer, second_answer, third_answer.save()
         console.log("ANSWERS", first_answer, second_answer, third_answer)
         var poll = new Poll({question: req.body.question});
