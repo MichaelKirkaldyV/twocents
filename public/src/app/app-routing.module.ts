@@ -13,7 +13,6 @@ import { ResultsComponent } from './results/results.component';
 
 const routes: Routes = [
 
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -23,6 +22,7 @@ const routes: Routes = [
   { path: 'dashboard/:id/allPolls', component: AllpollsComponent },
   { path: 'dashboard/:id/myPolls', component: MypollsComponent },
   { path: 'dashboard/:id/results', component: ResultsComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/home' }
 
 ];
 
