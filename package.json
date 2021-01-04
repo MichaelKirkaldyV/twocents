@@ -1,26 +1,19 @@
 {
   "name": "twocents",
   "version": "0.0.0",
-  "engines": {
-    "node": "v8.11.4",
-    "npm": "5.8.0"
-  },
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --output-path angularapp  --aot --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.0.2",
-    "@angular/cli": "^11.0.5",
     "@angular/common": "~9.0.2",
     "@angular/compiler": "~9.0.2",
-    "@angular/compiler-cli": "^9.0.7",
     "@angular/core": "~9.0.2",
     "@angular/forms": "~9.0.2",
     "@angular/platform-browser": "~9.0.2",
@@ -39,17 +32,15 @@
     "ng2-charts": "^2.4.2",
     "node": "^15.3.0",
     "nodemon": "^2.0.6",
-    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "stable": "^0.1.8",
     "tslib": "^1.14.1",
-    "typescript": "~3.7.5",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.3",
     "@angular/cli": "^11.0.5",
-    "@angular/compiler-cli": "^9.0.7",
+    "@angular/compiler-cli": "~9.0.2",
     "@angular/language-service": "~9.0.2",
     "@types/jasmine": "^3.6.2",
     "@types/jasminewd2": "~2.0.3",
